@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{%load crispy_forms_tags %}
+
+{% block content %}
+
+<a href="{% url 'post' %}" class="btn btn-success">Back</a>
+<a href="{% url 'pdf' %}" style="margin-right: 500px;" class="btn btn-danger">Download</a>
+
+<h2><center>List of Questions</center></h2>
+<!--<div class="container" style="width: 50%; display: block;margin: auto; margin-top: 80px">
+    <table style="width: 100%; display: block;margin: auto>-->
+<table style="width: 80%;margin: auto">
+    <tr>
+        <th>Posted By</th>
+        <th>Posted Date</th>
+        <th>Question</th>
+    </tr>
+    {% for question in questions %}
+    <tr>
+        <td style="width:130px">{{question.name}}</td>
+        <td style="width:100px">{{question.date}}</td>
+        <td style="width:300px">{{question.question}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+{% endblock %}
